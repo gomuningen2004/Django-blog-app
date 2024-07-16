@@ -1,0 +1,21 @@
+{% extends 'nonLoginBase.html' %}
+
+{% block title %}
+    Add a new post | Posts.
+{% endblock %}
+
+{% block content %}
+
+    <p class="h2 my-4">Add your post</p>
+
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div class="d-grid gap-2 col-1 mx-auto">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+
+{% endblock %}
+
+

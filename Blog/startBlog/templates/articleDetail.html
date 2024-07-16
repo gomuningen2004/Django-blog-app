@@ -1,0 +1,19 @@
+{% extends 'nonLoginBase.html' %}
+
+{% block title %}
+    {{ post.title }} | Posts.
+{% endblock %}
+
+{% block content %}
+    <h2>‎</h2> <!--empty character-->
+    <div class="card my-3">
+        <div class="card-body">
+    
+            <h2 class="card-title"> {{ post.title }} </h2>
+            <p class="card-subtitle text-body-secondary mt-2 pb-2 border-2 border-black border-bottom">By : {{ post.author }} </p>
+            <p class="card-text"> {{ post.body|linebreaks }} </p>
+            <p class="card-subtitle text-body-primary mt-2 pb-2 border-2 border-black border-bottom"></p>
+    
+        </div>
+    </div>
+{% endblock %}         
