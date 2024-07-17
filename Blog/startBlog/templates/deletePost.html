@@ -1,19 +1,19 @@
 {% extends 'nonLoginBase.html' %}
 
 {% block title %}
-    Add a new post | 
+    Delete post | {{ post.title }} | 
 {% endblock %}
 
 {% block content %}
 
-    <p class="h2 my-4">Add your post</p>
+    <p class="h2 my-4">Delete the post</p>
 
     <div class="container newpost rounded-4 card-body form-group">
         <form method="POST">
             {% csrf_token %}
-            {{ form.as_p }}
+            <strong>Are you sure that you want to delete the post?</strong>
             <div class="d-grid gap-2 col-1 mx-auto">
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary">Delete</button>
             </div>
         </form>
     </div>
