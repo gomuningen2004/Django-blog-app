@@ -1,0 +1,23 @@
+{% extends 'nonLoginBase.html' %}
+
+{% block title %}
+    Register | 
+{% endblock %}
+
+{% block content %}
+
+    <p class="h2 my-4">Register</p>
+
+    <div class="container newpost rounded-4 card-body form-group">
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <div class="d-grid gap-2 col-1 mx-auto">
+                <button type="submit" class="btn btn-primary">Register</button>
+            </div>
+        </form>
+    </div>
+
+{% endblock %}
+
+
