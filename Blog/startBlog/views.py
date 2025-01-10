@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, CreateView
 from .models import Post
 
 # def home(request):
@@ -15,3 +15,8 @@ class HomeView(ListView):
 class PostView(DetailView):
     model = Post
     template_name = 'post_detail.html'
+
+class AddPostView(CreateView):
+    model = Post
+    template_name = 'add_post.html'
+    fields = '__all__' #to get all fields in the Post method if needed separately then we can just use (field names separated by ,)

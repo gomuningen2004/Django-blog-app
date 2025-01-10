@@ -1,0 +1,10 @@
+{%  extends 'base.html' %}
+{%  block title %} Add post | Posts. {%  endblock %}
+{%  block content    %}
+<br>
+<form method="post">
+    {% csrf_token %} <!-- used for data protection -->>
+    {{ form.as_p }}
+    <button class="btn btn-secondary">Post</button>
+</form>
+{%  endblock    %}
