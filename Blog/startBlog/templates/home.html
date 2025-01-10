@@ -21,7 +21,7 @@
         <div class="card-body">
 
             <h2 class="card-title"><a href="{% url 'articleDetail' post.pk %}" class="text-decoration-none link-body-emphasis"> {{ post.title }} </a></h2>
-            <p class="card-subtitle text-body-secondary mt-2 pb-2 border-2 border-black border-bottom">By : {{ post.author }} . {{ post.postTime }} . {{post.postDate}}</p>
+            <p class="card-subtitle text-body-secondary mt-2 pb-2 border-2 border-black border-bottom">By : {{ post.author }} . {{post.postDate}} . {{ post.postTime }}</p>
             <p class="card-text"> {{ post.body|linebreaks }} </p>
             <p class="card-subtitle text-body-primary mt-2 pb-2 border-2 border-black border-bottom"></p>
     
