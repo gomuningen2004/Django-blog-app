@@ -2,7 +2,10 @@
 
 <ul>
 {% for post in object_list %}
-    <li>{{  post.title }} - {{  post.author }} <br/>
+    <li><a href="{% url 'post-detail' post.pk %}">{{  post.title }}</a> - {{  post.author.first_name }} {{  post.author.last_name }} <br/>
+        @{{  post.author }} <br/>
     {{  post.body   }}</li>
 {% endfor %}
 </ul>
+
+<!-- so here the url is written in the above format of {% url 'name of the url path from urls.py' and any parameters here %} -->
