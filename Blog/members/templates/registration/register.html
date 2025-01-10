@@ -1,0 +1,16 @@
+{%  extends 'base.html' %}
+{%  block title %} Register | Posts. {%  endblock %}
+{%  block content    %}
+<br>
+<div class="container">
+    <h1>Register</h1>
+    <br><br>
+    <div class="form-group">
+        <form method="post">
+            {% csrf_token %} <!-- used for data protection -->
+            {{ form.as_p }} <!-- each form field is in the form of a paragraph -->
+            <button class="btn btn-secondary">Register</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

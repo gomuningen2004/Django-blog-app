@@ -4,4 +4,6 @@ from django.urls import path, include #include is added so that we can import fr
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('startBlog.urls')), #adding the app urls here
+    path('members/', include('django.contrib.auth.urls')), #handles the user auth side like login and registration
+    path('members/', include('members.urls')),
 ]
