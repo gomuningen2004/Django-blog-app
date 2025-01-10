@@ -14,6 +14,7 @@ class HomeView(ListView):
     model = Post
     template_name = 'home.html'
     # ordering = ['-id'] #-id is sorting from last to first and just id is sorting from first to last
+    ordering = ['-post_date', '-post_time']
 
 class PostView(DetailView):
     model = Post

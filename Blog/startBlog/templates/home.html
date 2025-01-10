@@ -5,7 +5,7 @@
 <ul>
 {% for post in object_list %}
     <li><a href="{% url 'post-detail' post.pk %}">{{  post.title }}</a> - {{  post.author.first_name }} {{  post.author.last_name }} <br/>
-        @{{  post.author }} <br/>
+        @{{  post.author }} . {{ post.post_date }} . {{ post.post_time }}<br/>
     {{  post.body   }}</li>
 {% endfor %}
 </ul>
