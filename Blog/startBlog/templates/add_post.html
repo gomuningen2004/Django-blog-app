@@ -2,6 +2,8 @@
 {%  block title %} Add post | Posts. {%  endblock %}
 {%  block content    %}
 <br>
+{% if user.is_authenticated %}
+
 <div class="container">
     <div class="form-group">
         <form method="post">
@@ -11,4 +13,8 @@
         </form>
     </div>
 </div>
+{% else %}
+<p>please login</p>
+{% endif %}
+
 {% endblock %}
