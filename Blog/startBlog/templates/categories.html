@@ -1,0 +1,23 @@
+{%  extends 'base.html' %}
+{%  block title %} Categories | {{ cats }} | Posts. {%  endblock %}
+
+{%  block content    %}
+<br>
+<h1>{{ cats }} posts</h1>
+<br>
+{% if category_posts %}
+    <ul>
+        {% for post in category_posts %}
+            <li><a href="{% url 'post-detail' post.pk %}"><b>{{  post.title }}</b></a> - {{  post.author.first_name }} {{  post.author.last_name }} <br/>
+                @{{  post.author }} . {{ post.post_date }} . {{ post.post_time }}<br/>
+                <a href="{% url 'category-view' post.category %}">{{  post.category }}</a><br>
+                <hr>
+                {{ post.body|slice:":200"|safe }}</li>
+            <br>
+        {% endfor %}
+    </ul>
+{% else %}
+    <h2>There are no posts of the category {{ cats }}</h2>
+{% endif %}
+{%  endblock    %}
+<!-- so here the url is written in the above format of {% url 'name of the url path from urls.py' and any parameters here %} -->
