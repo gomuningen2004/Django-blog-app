@@ -3,6 +3,16 @@ from django.contrib.auth.models import User #importing users
 from django.urls import reverse #importing the reverse function for the posting button
 from datetime import datetime, date, time
 
+class Category(models.Model):
+    name = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.name
+    
+    def get_absolute_url(self):
+        # return reverse('post-detail', args=(str(self.id)))
+        return reverse('home')
+
 class Post(models.Model):
     title = models.CharField(max_length=255)
     # title_tags = models.CharField(max_length=255, default="Posts.") #as this field is added later to make sure that the old posts dont have any null values we pass some default value that can be stored
@@ -10,7 +20,7 @@ class Post(models.Model):
     body = models.TextField()
     post_date = models.DateField(auto_now_add=True)
     post_time = models.TimeField(auto_now_add=True)
-    
+    category = models.CharField(max_length=255, default="#general")
 
     def __str__(self):
         return self.title + " | " + str(self.author)
