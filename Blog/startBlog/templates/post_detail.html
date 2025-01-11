@@ -4,7 +4,7 @@
 {%  block content    %}
 <h1>{{  post.title  }}</h1>
 <small>By: @{{ post.author  }} . {{ post.post_date }} . {{ post.post_time }}</small><br>
-<small>{{  post.category }}</small>
+<small><a href="{% url 'category-view' post.category|slugify %}">{{  post.category }}</a></small>
 <hr>
 <p>{{ post.body|safe }}</p> <!-- the safe lets us input html for formatting the text in the body -->
 
