@@ -5,7 +5,7 @@
 <h1>{{  post.title  }}</h1>
 <small>By: @{{ post.author  }} . {{ post.post_date }} . {{ post.post_time }}</small>
 <hr>
-<p>{{   post.body   }}</p>
+<p>{{ post.body|safe }}</p> <!-- the safe lets us input html for formatting the text in the body -->
 
 <br><br>
 {% if user.is_authenticated %}
