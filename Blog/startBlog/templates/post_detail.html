@@ -12,7 +12,11 @@
 {% if user.is_authenticated %}
     <form action="{% url 'like-post' post.pk %}" method="post">
         {% csrf_token %}
+        {% if liked %}
+        <button type="submit" name="post_id" value="{{ post.id }}" class="btn btn-danger">Unlike</button> - {{ total_likes }} likes
+        {% else %}
         <button type="submit" name="post_id" value="{{ post.id }}" class="btn btn-primary">Like</button> - {{ total_likes }} likes
+        {% endif %}
     </form>
     <br>
     {% if user.id == post.author.id %}
