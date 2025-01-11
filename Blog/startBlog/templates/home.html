@@ -4,7 +4,7 @@
 <br>
 <ul>
 {% for post in object_list %}
-    <li><a href="{% url 'post-detail' post.pk %}"><b>{{  post.title }}</b></a> - {{  post.author.first_name }} {{  post.author.last_name }} <br/>
+    <li><a href="{% url 'post-detail' post.pk %}"><b>{{  post.title }}</b></a><br/>
         @{{  post.author }} . {{ post.post_date }} . {{ post.post_time }}<br/>
         <a href="{% url 'category-view' post.category|slugify %}">{{  post.category }}</a><br>
         <hr>

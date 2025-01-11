@@ -10,6 +10,11 @@
 
 <br><br>
 {% if user.is_authenticated %}
+    <form action="{% url 'like-post' post.pk %}" method="post">
+        {% csrf_token %}
+        <button type="submit" name="post_id" value="{{ post.id }}" class="btn btn-primary">Like</button> - {{ total_likes }} likes
+    </form>
+    <br>
     {% if user.id == post.author.id %}
         <a href="{% url 'edit-post' post.pk %}" class="btn btn-secondary">Edit</a>
 
