@@ -16,8 +16,8 @@
 
 
 <script>
-    var name = "{{ user.username }}";
-    document.getElementById("currentUser").value = name;
+    var userId = "{{ user.id }}";
+    document.getElementById("currentUser").value = userId;
 </script>
 {% else %}
 <p>please login</p>
