@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'startBlog', #adding the app that we want to use
     'members',
+    'ckeditor',
 ]
 
 MIDDLEWARE = [

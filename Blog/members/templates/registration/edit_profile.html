@@ -1,27 +1,16 @@
 {%  extends 'base.html' %}
-{%  block title %} Add post | Posts. {%  endblock %}
+{%  block title %} Edit Profile | Posts. {%  endblock %}
 {%  block content    %}
 <br>
-{% if user.is_authenticated %}
-
 <div class="container">
+    <h1>Edit profile</h1>
+    <br><br>
     <div class="form-group">
         <form method="post">
             {% csrf_token %} <!-- used for data protection -->
-            {{ form.media }}
             {{ form.as_p }} <!-- each form field is in the form of a paragraph -->
-            <button class="btn btn-secondary">Post</button>
+            <button class="btn btn-secondary">Save</button>
         </form>
     </div>
 </div>
-
-
-<script>
-    var userId = "{{ user.id }}";
-    document.getElementById("currentUser").value = userId;
-</script>
-{% else %}
-<p>please login</p>
-{% endif %}
-
 {% endblock %}

@@ -8,6 +8,7 @@
     <div class="form-group">
         <form method="post">
             {% csrf_token %} <!-- used for data protection -->
+            {{ form.media }}
             {{ form.as_p }} <!-- each form field is in the form of a paragraph -->
             <button class="btn btn-secondary">Update Post</button>
         </form>
