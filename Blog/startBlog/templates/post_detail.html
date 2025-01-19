@@ -19,7 +19,32 @@
         <button type="submit" name="post_id" value="{{ post.id }}" class="btn btn-primary">Like</button> - {{ total_likes }} likes
         {% endif %}
     </form>
-    <br>
+    <br><br>
+
+
+    <div class="card mb-3">
+        <div class="row g-0">
+          <div class="col-md-2">
+            <img src="{{ post.author.profile.profile_pic.url }}" class="img-fluid rounded-start" alt="...">
+          </div>
+          <div class="col-md-10">
+            <div class="card-body">
+              <h5 class="card-title">@{{ post.author  }}</h5>
+              <p class="card-text">
+                <small class="text-body-secondary">
+                {% for name, url in post.author.profile.get_social_links.items %}
+                    <a href="{{ url }}" target="_blank">{{ name }}</a>{% if not forloop.last %} | {% endif %}
+                {% endfor %}
+                </small>
+              </p>            
+              <p class="card-text">{{ post.author.profile.bio }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <!-- <img src="" alt="" class="rounded-circle" height="100" width="100"> -->
+    <br><br>
     {% if user.id == post.author.id %}
         <a href="{% url 'edit-post' post.pk %}" class="btn btn-secondary">Edit</a>
 
