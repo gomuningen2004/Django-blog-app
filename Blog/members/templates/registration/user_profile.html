@@ -1,0 +1,34 @@
+{%  extends 'base.html' %}
+{% load static %}
+{%  block title %} User Profile | Posts. {%  endblock %}
+
+{%  block content    %}
+<h1>User Profile</h1>
+
+<br><br>
+<div class="card mb-3">
+  <div class="row g-0">
+    <div class="col-md-2">
+      {% if page_user.profile_pic %}
+      <img src="{{ page_user.profile_pic.url }}" class="img-fluid rounded-start" alt="...">
+      {% else %}
+      <img src="{% static 'startBlog/images/images.jpeg' %}" class="img-fluid rounded-start" alt="...">
+      {% endif %}
+    </div>
+    <div class="col-md-10">
+      <div class="card-body">
+        <h4 class="card-title">{{ page_user.user.first_name }} {{ page_user.user.last_name }}</h4>
+        <h5 class="card-title">@{{ page_user.user.username }}</h5>
+        <p class="card-text">
+          <small class="text-body-secondary">
+          {% for name, url in page_user.user.profile.get_social_links.items %}
+              <a href="{{ url }}" target="_blank">{{ name }}</a>{% if not forloop.last %} | {% endif %}
+          {% endfor %}
+          </small>
+        </p>            
+        <p class="card-text">{{ page_user.user.profile.bio }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+{%  endblock    %}
