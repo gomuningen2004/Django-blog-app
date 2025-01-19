@@ -2,9 +2,9 @@ from django.shortcuts import render, get_object_or_404
 from django.views import generic
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm, PasswordChangeForm
 from django.urls import reverse_lazy
-from .forms import SignUpForm, EditProfileForm, PasswordChangingForm
+from .forms import SignUpForm, EditProfileForm, PasswordChangingForm, ProfilePageForm
 from django.contrib.auth.views import PasswordChangeView
-from django.views.generic import DetailView
+from django.views.generic import DetailView, CreateView
 from startBlog.models import Profile
 
 
@@ -43,3 +43,15 @@ class EditProfilePageView(generic.UpdateView):
     template_name = 'registration/edit_profile_page.html'
     fields = [ 'profile_pic', 'bio', 'website_url', 'instagram_url', 'linkedin_url', 'x_url', 'pinterest_url']
     success_url = reverse_lazy('user-profile')
+
+class CreateProfilePageView(CreateView):
+    model = Profile
+    form_class = ProfilePageForm
+    template_name = 'registration/create_profile.html'
+    # fields = '__all__'
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
+    
+    

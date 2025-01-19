@@ -59,3 +59,6 @@ class Profile(models.Model):
             "Pinterest": self.pinterest_url,
         }
         return {name: url for name, url in links.items() if url}
+    
+    def get_absolute_url(self):
+        return reverse('home')

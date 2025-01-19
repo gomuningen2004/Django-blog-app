@@ -42,16 +42,21 @@
                 </a>
                 <ul class="dropdown-menu">
                   <li><a class="dropdown-item" href="{% url 'edit-profile' %}">Edit settings</a></li>
-                  <li><a class="dropdown-item" href="{% url 'edit-user-profile' user.profile.id %}">Edit profile page</a></li>
-                  <li><a class="dropdown-item" href="{% url 'user-profile' user.profile.id %}">Show profile page</a></li>
+                  {% if user.profile.id %}
+                    <li><a class="dropdown-item" href="{% url 'edit-user-profile' user.profile.id %}">Edit profile page</a></li>
+                    <li><a class="dropdown-item" href="{% url 'user-profile' user.profile.id %}">Show profile page</a></li>
+                  {% else %}
+                  <li><a class="dropdown-item" href="{% url 'create-user-profile' %}">Create profile page</a></li>
+                  {% endif %}
+                  
                   <!-- <li><hr class="dropdown-divider"></li> -->
                 </ul>
-                <form method="post" action="{% url 'logout' %}" class="nav-item">
-                  {% csrf_token %} 
-                  <button type="submit" class="nav-link">Log Out</button>
-                </form>
+                
               </li>
-              
+              <form method="post" action="{% url 'logout' %}" class="nav-item">
+                {% csrf_token %} 
+                <button type="submit" class="nav-link">Log Out</button>
+              </form>
               {% else %}
               <li class="nav-item">
                 <a class="nav-link" href="{% url 'register' %}">Register</a>
